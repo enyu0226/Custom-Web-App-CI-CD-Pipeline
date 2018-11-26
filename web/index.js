@@ -1,4 +1,3 @@
-
     var mysfitsApiEndpoint = 'http://garybb2.mylabserver.com:8080'; // example: 'http://mythi-publi-abcd12345-01234567890123.elb.us-east-1.amazonaws.com'
 
     var app = angular.module('mysfitsApp', []);
@@ -68,7 +67,9 @@
                applyGridScope(data.mysfits)
              })
            .fail(function(response) {
-               console.log("could not retrieve mysfits list.");
+               let error = "Could Not Process the Operation";
+               swal("Oops!", `Something went wrong! ${error}`, "error");
+               console.log("Could Not Retrieve Mysfit List");
                console.log(response.message);
              });
        }
@@ -112,7 +113,9 @@
           callback(response.mysfits);
         })
       .fail (function(response) {
-          console.log("could not retrieve mysfits list.");
+          let error = "Could Not Retrieve Mysfits List";
+          swal("Oops!", `Something went wrong! ${error}`, "error");
+          console.log(error);
           console.log(response.message);
         })
     }

@@ -1,7 +1,6 @@
-FROM ubuntu:latest
+FROM alpine:latest
 RUN echo Updating existing packages, installing and upgrading python and pip.
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
+RUN apk update && apk add --no-cache py-pip python-dev build-base
 RUN pip install --upgrade pip
 RUN echo Copying the Mythical Mysfits Flask service into a service directory.
 WORKDIR /MythicalMysfitsService
